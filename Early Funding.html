@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,500i,700,800i" rel="stylesheet">
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Early Funding</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  <script type="m
+odule">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBos3l5aVIoXmuyiEXF356lm0fOKzrNqIo",
+      authDomain: "investmentsocial-27c8d.firebaseapp.com",
+      projectId: "investmentsocial-27c8d",
+      storageBucket: "investmentsocial-27c8d.appspot.com",
+      messagingSenderId: "411632581192",
+      appId: "1:411632581192:web:e671d2f26b7238fecdf67d",
+      measurementId: "G-E162BJ9XD6"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    import {getDatabase, ref, set, child, get}
+    from "https://www.gstatic.com/firebasejs/9.9.2/firebase-database.js";
+
+    const db = getDatabase();
+
+    //--References for the data//
+    const name = document.getElementById('name1');
+    const email = document.getElementbyId('email1');
+    const pass = document.getElementById('pass1');
+    const repass = document.getElementById('re_pass1');
+    const submit = document.getElementById('signup');
+
+  // validation //
+
+  function Validation(){
+    let nameregex = /^[a-zA-Z]+$/;
+    let email = /^[a-zA-Z0-9]+@(gmail|yahoo|outlook)\.com$/;
+    let userregex = /^[a-zA-Z0-9]{5,}$/;
+
+    if(!nameregex.test(name.value)){
+      alert("enter a valid email");
+      return false;
+
+    }
+    if (!email.test(email.value)){
+      alert("enter a valid email");
+      return false;
+
+    }
+
+    if(!userreg.test(username.value)){
+      alert("-username can be alphanumerical\n-username must be at least 5 characters\n-username cannot contain spaces");
+      return false;
+    }
+    return true;
+  }
+
+  // -- registering to the firebase---//
+
+  function RegisterUser(){
+    Validation();
+    const dbRef = ref(db);
+
+    get(child(dbRef, "UsersList/"+ username.value)).then((snapshot)=>{
+     if(snapshot.exists()){
+      alert("Account Already Exists!");
+    }
+    else{
+      set(ref(db, "UsersList/"+ username.value),
+      {
+          fullname: name.value,
+          email: email1.value,
+          password: pass.value
+      })
+      .then(()=>{
+        alert("user added successfully");
+      })
+      .catch((error)=>{
+        alert("error"+ error);
+      }
+    }
+  }
+			 
+
+  //-- assigning event---//
+
+  submit.addEventListener('click',RegisterUser);
+  </script>
+    <nav class="navbar navbar-expand-sm   navbar-light sticky">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button> 
+		<script> src="main.js"></script>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link text-black text-body"><img src="images/InvestmentSocial-logos_black.png" alt="" width="85" height="30"/><span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item"> <a class="nav-link text-black text-body" href="Business Oppurtunities.html">Investment&nbsp; Oppurtunities</a> </li>
+<li class="nav-item dropdown dmenu">
+        <a class="nav-link dropdown-toggle text-black text-body"id="navbardrop" data-toggle="dropdown">
+        Businesses </a>
+        <div class="dropdown-menu sm-menu">
+          <a class="dropdown-item" href="Early Funding.html">Early Funding</a>
+          <a class="dropdown-item" href="growthFunding.html">Growth Funding</a>
+        </div>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link text-black text-body" href="ContactUs.html">Contact Us</a>
+          </li>
+           <!-- <li class="nav-item dropdown dmenu">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu sm-menu">
+              <a class="dropdown-item" href="#">Link 1</a>
+              <a class="dropdown-item" href="#">Link 2</a>
+              <a class="dropdown-item" href="#">Link 3</a>
+              <a class="dropdown-item" href="#">Link 4</a>
+              <a class="dropdown-item" href="#">Link 5</a>
+              <a class="dropdown-item" href="#">Link 6</a>
+            </div>
+          </li> -->
+          </ul>
+          <div class="social-part">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+          </div>
+      </div>
+</nav>
+
+    <div>
+
+        <!-- Sign up form -->
+      <section class="">
+        <div class="main bg4">
+          <h1 class="text-center">Early Funding</h1>
+              <div class="container">
+                <p>&nbsp;</p> <h4 class="">Funding to increase your growth</h4>
+              <p class="text-left">We know the excitement and the determination which has been taken for the business you own to get it to the place it is at right now and we are hope to help with your journey.
+                also funding that fuels your next phase of growth.
+              </p>
+              <p>&nbsp;</p>
+              <h6 class="text-center"> Early-stage investment: is InvestmentSocial good for your business?</h6>
+              <style>
+                ul#menu li {
+                  display:inline;
+                }
+                </style>
+              <ul id="menu">
+                <li><p>Minimum target between £250k-£750k</p></li>
+                <li><p>Ability to promote to friends, family , followers, customers and suppliers</p></li>
+                <li><p>Launched a prototype product or service</p></li>
+                <li><p>Generating Early-stage revenue</p></li>
+                <li><p>Have a private limited business registered in Europe</p></li>
+                <li>
+                  <p>Looking to transform early adopters into longterm brand advocates</p>
+                  <p>&nbsp;</p>
+                </li>
+              </ul>  
+            </div>
+			<h2 class="text-center">Success Stories</h2>
+          <section class="card-container">
+				<div class="card">
+					<div class="card-image company-1"></div>
+					<h2>MusicMagpie</h2>
+					<p>"initially focused on pre-owned CDs, buying from and selling to consumers. Today, it is a leader of re-commerce in the UK and US in the circular economy of consumer technology, books and disc media."</p>
+					<a href="" class="text-center btn btn-dark">Read More</a>
+			    </div>
+				  <div class="card">
+					<div class="card-image company-2"></div>
+					<h2>Currys</h2>
+					<p>After growing and diversifying the business to sell gramophones, toys and radios, as well as bicycles, Currys floats on the stock market.&nbsp;1937: Charles Kalms, opens the first Dixons photo studio in Southend.</p>
+					  <a href="" class="text-center btn btn-dark">Read More</a>
+				  </div>
+				  <div class="card">
+					<div class="card-image company-3"></div>
+					<h2>BackMarket</h2>
+					<p>Our transparent grading system considers both the cosmetic appearance and technical condition of any given device. Every device on our site is guaranteed to be 100% functional — "technical condition</p>
+					  <a href="" class="text-center btn btn-dark">Read More</a>
+				  </div>
+		  </section>
+			<div class="sectioncontainer scontainer">
+			  <h3 class="text-capitalize text-center">&nbsp;</h3>
+			  <h3 class="text-capitalize text-center">Building a community is easier said than done.</h3>
+<p class="text-center"> Traditionally, it required time, a big marketing budget and perseverance.
+			    
+			    Now, there’s a new addition to your marketing mix that helps you build a community faster and engage them for longer.
+			    
+			    Turn your fans into fanatics and they will love you for it.</p>
+			  <p>&nbsp;</p>
+			  <section class="card-container">
+			  <div class="card2">
+				<div class="">
+				  
+			      <p>"InvestmentSocial is the reason we exist today and that’s the truth for many many start ups! The one thing that we had and that really made sense to us was the community that we were building. We quickly realised if we had this following and these amazing people backing us, the best thing for us to do was leverage what we did have."</p>
+			      <p><strong>Aaron Davis- Founder of Metamask&nbsp; &nbsp;&nbsp;</strong></p>
+                </div>
+				</div>
+			
+				<div class="card2">
+				<div class="">
+					
+				  <p>"We’d started building up a nice following on social media of customers and fans of our product, so we really wanted to open the raise up to those people and build a set of brand advocates - which has been fantastic!"</p>
+				  <p><strong>&nbsp;David Ring - Founder of E-Toro&nbsp; &nbsp;</strong></p>
+                </div>
+				</div>
+				<div class="card2">
+				<div class="">
+					
+				  <p>"Some of our investors have gotten in touch and offered their help or made suggestions, and many have become customers too."</p>
+				  <p><strong>&nbsp;Daniel Ek - Founder of Spotify</strong></p>
+<p>&nbsp;</p>
+                </div>
+				</div>
+				</section>
+			  <h3 class="text-center">Your fundraising journey with us</h3>
+			  <p class="text-center">Our team of experts will help you raise investment, that’s what we do, but it’s much more than that, it’s about taking your business to the next level by engaging and growing your community, who will help fuel and fund your long-term growth. You’ll receive expert advice on campaign planning, strategy and optimisation to maximise success and a dedicated Campaign Manager throughout your campaign.</p>
+				<p>&nbsp;</p>
+          </div>
+
+<div class="container3 card-container">
+	<div class="card2">
+	<h2>Raise more with InvestmentSocial</h2>
+	<p>Businesses raise more and build bigger communities with Crowdcube; on average business that crowdfund with us raise over 20% more and attract 50% more investors compared to other crowdfunders.</p>
+	</div>
+	<div class="card2">
+	<h2>Secure capital quickly</h2>
+	<p>Our process has been optimised to ensure your campaign - from preparation to completion - is efficient and effective. Our trusted partners are fully integrated to Crowdcube’s systems and processes, to ensure your experience is seamless.</p>
+	</div>
+	<div class="card2">
+	<h2>Start community building &nbsp;</h2>
+	<p>Kick-start your community-building by converting interest to investment. Your new community of investors will become your most loyal customers, biggest advocates and importantly, a source of investment for future funding rounds.</p>
+	</div>
+	<div class="card2">
+	<h2>Lifetime funding partner</h2>
+	<p>&nbsp;An equity raise with Crowdcube lays the foundations for future rounds by ensuring you have the legal framework, documentation and shareholder management processes in place.&nbsp;</p>
+	<p>Our product, process and expertise means we can support you now and for future funding rounds.</p>
+    </div>
+	
+</div>
+<div class="scontainer card-container">
+	<div class="card2">
+	  <h4>&nbsp;</h4>
+	  <h4>Raise under the InvestmentSocial Nominee</h4>
+<p>All aspects of our nominee service are covered in the fees associated with your initial raise with InvestmentSocial.</p>
+	</div>
+<div class="card2">
+	<h4>&nbsp;</h4>
+	<h4>Tax relief and Companies House filings</h4>
+<p>Our team will do your EIS and/or SEIS filings, as well as your SH01 filing at Companies House.</p>
+	</div>
+<div class="card2">
+	<h4>&nbsp;</h4>
+	<h4>Comprehensive marketing support</h4>
+<p>Our marketing has been optimised to covert interest to investment. It’s also included in our fully inclusive fee.</p>
+	</div>
+<div class="card2">
+	<h4>Full legal completion of the round</h4>
+	<p>This includes AML/KYC checks on all your investors, payment capture and processing, and issuing share certificates.</p>
+	</div>
+<div class="card2">
+	<h4>Access all your analytics in one place&nbsp;</h4>
+	<p>You'll have access to your own campaign dashboard, showing you what marketing activity is working as well as hints and tips.</p>
+	</div>
+<div class="card2">
+	<h4>Free templates &amp; tools</h4>
+	<p>We'll provide you with templated Articles of Association, a share price calculator and a Crowd Mapper tool to warm up your community.</p>
+	</div>
+<div class="card2">
+	<h4>Transparent fee structure</h4>
+	<p>A success fee of 7% (excl. VAT) is only charged on the amount you successfully raise and only applies if you reach 100% of your funding target or more. A completion fee of 0.75% -1.25% of all funds raised, is also applied for third-party payment provider costs.</p>
+	</div>
+<div class="card2">
+	<h4>Membership to our Funded Club</h4>
+	<p>You’ll become a member of our Funded Club and will have access to exclusive benefits and services to further grow your business, as well as ongoing promotional support from us.</p>
+	</div></div>
+
+			
+<!-- Wrapper for slides -->
+
+        </div>
+</section>
+
+              </div>
+
+                </div>
+            </div>
+      </section>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+    $('.navbar-light .dmenu').hover(function () {
+            $(this).find('.sm-menu').first().stop(true, true).slideDown(150);
+        }, function () {
+            $(this).find('.sm-menu').first().stop(true, true).slideUp(105)
+        });
+    });
+    </script>
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+	<footer class="footer">
+<div class="footer__addr">     
+  <h3>About Us</h3>
+    
+  <address>
+    Princewill Okube founded the British venture crowdfunding website InvestmentSocial. InvestmentSocial Kind of place. Corporate finance Equity (finance) Crowdfunding Headquarter.<br>
+          
+    <a class="footer__btn" href="mailto:okubep@gmail.com">Email Us</a>
+  </address>
+  </div>
+  
+  <ul class="footer__nav">
+<li class="nav__item">
+      <h2 class="nav__title">Businesses</h2>
+
+      <ul class="nav__ul">
+        <li>
+          <a href="#">&nbsp;Early Funding</a>
+        </li>
+
+        <li>
+          <a href="#">Business Oppurtunities&nbsp;</a>
+        </li>
+            
+        <li>
+          <a href="#">&nbsp;Growth Funding</a>
+        </li>
+      </ul>
+    </li>
+    
+<li class="nav__item">
+  <h2 class="nav__title">More Details&nbsp;</h2>
+      
+      <ul class="nav__ul nav__ul--extra col-lg-11">
+        <li>
+          <a href="#">Businesses&nbsp;</a>
+        </li>
+        
+        <li>
+          <a href="#">Risk Warning&nbsp;</a>
+        </li>
+        
+        <li>
+          <a href="#">&nbsp;</a>
+        </li>
+        
+        
+        <li>
+          <a href="#">&nbsp;</a>
+        </li>
+      </ul>
+    </li>
+    
+    <li class="nav__item">
+      <h2 class="nav__title">&nbsp;</h2>
+      
+      <ul class="nav__ul">
+    </li>
+  </ul>
+  
+  <div class="legal">
+    <p>&copy; 2022&nbsp; All rights reserved.</p>
+    
+    <div class="legal__links">
+      <span>&nbsp;</span>
+    </div>
+  </div>
+</footer>
+
+	
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
